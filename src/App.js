@@ -7,7 +7,8 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            image: require('../assets/images/poko.png')
+            image: require('../assets/images/poko.png'),
+            title: "Hello"
         }
     }
 
@@ -21,9 +22,9 @@ export default class App extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={[styles.section, { flex: 1 }]}>
-                    <Image
+                    <ImageBlock
                         style={styles.logo}
-                        source={{ uri: 'http://i.imgur.com/GfAe1bp.png' }}
+                        source={this.state.image}
                     />
 
                     <Text style={styles.textLarge}>
@@ -31,7 +32,7 @@ export default class App extends React.Component {
                     </Text>
 
                     <Text style={styles.textSmall}>
-                        (Open up main.js to start working)
+                        (Patrick First React Native App)
                     </Text>
                 </View>
 
@@ -73,5 +74,6 @@ const styles = StyleSheet.create({
         color: '#34495e',
         fontStyle: 'italic',
         paddingBottom: 5,
+        marginTop: '28%',
     },
 });

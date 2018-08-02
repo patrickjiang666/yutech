@@ -18,7 +18,7 @@ export default class ImageBlock extends React.Component {
         
         return (
             <View style={styles.container} >
-                <Image source={img} style={styles.image}/>
+                <Image source={img} style={styles.images}/>
                 <Text >Hello From ImageBlock Component</Text>
             </View>
         );
@@ -27,15 +27,14 @@ export default class ImageBlock extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        width: 100,
+        width: '100%',
         height: 100,
     },
     image: {
-        width: 50,
+        width: '80%',
         height: 50,
     }
 });
