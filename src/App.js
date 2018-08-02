@@ -19,19 +19,28 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <View style={styles.container} >
-                <View style={styles.line}>
-                    <Text>{"Open up App.js to start working on your app!"}</Text>
+            <View style={styles.container}>
+                <View style={[styles.section, { flex: 1 }]}>
+                    <Image
+                        style={styles.logo}
+                        source={{ uri: 'http://i.imgur.com/GfAe1bp.png' }}
+                    />
+
+                    <Text style={styles.textLarge}>
+                        {this.state.title}
+                    </Text>
+
+                    <Text style={styles.textSmall}>
+                        (Open up main.js to start working)
+                    </Text>
                 </View>
-                <ImageBlock source={this.state.image} style={styles.imageBlock}/>
-                <View style={styles.line}>
-                    <Text>{"Hello Patrick && Ted && Allen"}</Text>
-                </View>
-                <View style={styles.button}>
-                    <Button 
+
+                <View style={styles.section}>
+                    <Button
                         onPress={this.onBtnPress}
-                        title="Click Me"
+                        title="Press Me"
                         color={'#16a085'}
+                        accessibilityLabel="See an informative alert"
                     />
                 </View>
             </View>
@@ -42,25 +51,27 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'lightgrey',
+    },
+    section: {
         alignItems: 'center',
         justifyContent: 'center',
+        borderBottomWidth: 1,
+        borderColor: '#eee',
+        padding: 10,
     },
-    line: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'white',
-        flex: 1,
-        width: '100%'
+    logo: {
+        width: 60,
+        height: 60,
+        marginBottom: 20,
     },
-    imageBlock: {
-        flex: 2
+    textLarge: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#2c3e50',
     },
-    button: {
-        height: 70,
-        width: '100%',
-        borderTopWidth: 1,
-        justifyContent: 'center',
-        backgroundColor: 'white',
-    }
+    textSmall: {
+        color: '#34495e',
+        fontStyle: 'italic',
+        paddingBottom: 5,
+    },
 });
