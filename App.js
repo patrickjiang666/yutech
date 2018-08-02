@@ -16,7 +16,9 @@ export default class App extends React.Component {
         return (
             <View style={styles.container} >
                 <Text >Open up App.js to start working on your app!</Text>
-                <Image source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }} />
+                <Image
+                    source={require('./assets/images/red_heart.png')}
+                />
                 <Text >Hello Patrick && Ted && Allen</Text>
                 
             </View>
