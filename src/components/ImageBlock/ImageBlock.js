@@ -1,28 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View, AppRegistry, Image } from 'react-native';
-import ImageBlock from './components/ImageBlock/ImageBlock';
 
-export default class App extends React.Component {
+export default class ImageBlock extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            image: {
+            imageLink: {
                 uri: 'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjG966Z887cAhUJMt8KHW6OCUAQjRx6BAgBEAU&url=https%3A%2F%2Faminoapps.com%2Fc%2Fanime%2Fpage%2Fblog%2Fpokomon-pikachu%2FBJtw_udqxreebkqD62KkKRxEmb3Ko5&psig=AOvVaw3fugcrp4qcYJ056WwJpQQA&ust=1533317555322040'
-            }
+            },
+            imageFile: require('../../../assets/images/red_heart.png')
         }
     }
 
     render() {
+        let img = this.props.source ? this.props.source : this.state.imageFile;
+        
         return (
             <View style={styles.container} >
-                <View style={styles.line}>
-                    <Text >Open up App.js to start working on your app!</Text>
-                </View>
-                <ImageBlock />
-                <View style={styles.line}>
-                    <Text >Hello Patrick && Ted && Allen</Text>
-                </View>
+                <Image source={img} style={styles.image}/>
+                <Text >Hello From ImageBlock Component</Text>
             </View>
         );
     }
@@ -34,9 +31,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        width: 100,
+        height: 100,
     },
-    line: {
-        flex: 1,
-        marginLeft: 25,
+    image: {
+        width: 50,
+        height: 50,
     }
 });
