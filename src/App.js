@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, AppRegistry, Image } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry, Image, Button } from 'react-native';
 import ImageBlock from './components/ImageBlock/ImageBlock';
 
 export default class App extends React.Component {
@@ -7,21 +7,32 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            image: {
-                uri: 'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjG966Z887cAhUJMt8KHW6OCUAQjRx6BAgBEAU&url=https%3A%2F%2Faminoapps.com%2Fc%2Fanime%2Fpage%2Fblog%2Fpokomon-pikachu%2FBJtw_udqxreebkqD62KkKRxEmb3Ko5&psig=AOvVaw3fugcrp4qcYJ056WwJpQQA&ust=1533317555322040'
-            }
+            image: require('../assets/images/poko.png')
         }
+    }
+
+    onBtnPress = () => {
+        alert("button click");
+        console.log('button');
+        
     }
 
     render() {
         return (
             <View style={styles.container} >
                 <View style={styles.line}>
-                    <Text >Open up App.js to start working on your app!</Text>
+                    <Text>{"Open up App.js to start working on your app!"}</Text>
                 </View>
-                <ImageBlock />
+                <ImageBlock source={this.state.image} style={styles.imageBlock}/>
                 <View style={styles.line}>
-                    <Text >Hello Patrick && Ted && Allen</Text>
+                    <Text>{"Hello Patrick && Ted && Allen"}</Text>
+                </View>
+                <View style={styles.button}>
+                    <Button 
+                        onPress={this.onBtnPress}
+                        title="Click Me"
+                        color={'#16a085'}
+                    />
                 </View>
             </View>
         );
@@ -31,12 +42,25 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'lightgrey',
         alignItems: 'center',
         justifyContent: 'center',
     },
     line: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
         flex: 1,
-        marginLeft: 25,
+        width: '100%'
+    },
+    imageBlock: {
+        flex: 2
+    },
+    button: {
+        height: 70,
+        width: '100%',
+        borderTopWidth: 1,
+        justifyContent: 'center',
+        backgroundColor: 'white',
     }
 });
