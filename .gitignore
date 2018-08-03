@@ -41,4 +41,6 @@ dist
 
 package-lock.json
 
+packager-info.json
+
 .editorconfig

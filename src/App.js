@@ -32,7 +32,7 @@ export default class App extends React.Component {
                     </Text>
 
                     <Text style={styles.textSmall}>
-                        (Patrick First React Native App)
+                        (Patrick First React Native App...)
                     </Text>
                 </View>
 
